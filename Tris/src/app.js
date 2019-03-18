@@ -1,4 +1,170 @@
 
+// let contenutoDelleCelle= [null,null,null,null,null,null,null,null,null]
+
+// let turn = 0
+
+// let winnerVar
+
+// function resetGame(){
+//     contenutoDelleCelle = [null,null,null,null,null,null,null,null,null]
+//     turn = 0;
+//     winnerVar = null;
+//     ReactDOM.render( 
+//         <RenderTris />, 
+//         document.getElementById('root')
+//     );
+// }//Resetta il gioco
+
+// function changeArray(indice){
+
+//     var elem = ''
+
+//     if (turn%2==0) { 
+//         elem = 'croce'
+//     }
+//     else {
+//         elem = 'cerchio'
+//     }
+
+//     contenutoDelleCelle[indice] = elem
+
+//     turn++
+
+//     ReactDOM.render( 
+//         <RenderTris />,
+//         document.getElementById('root')
+//     );
+
+// }//cambia il valore all'array per poi rifare il render della pagina
+
+// function checkWinner(){
+
+//     if (
+//         contenutoDelleCelle[0] + contenutoDelleCelle[1] + contenutoDelleCelle[2] == 'crocecrocecroce' ||
+//         contenutoDelleCelle[3] + contenutoDelleCelle[4] + contenutoDelleCelle[5] == 'crocecrocecroce' ||
+//         contenutoDelleCelle[6] + contenutoDelleCelle[7] + contenutoDelleCelle[8] == 'crocecrocecroce' ||
+
+//         contenutoDelleCelle[0] + contenutoDelleCelle[3] + contenutoDelleCelle[6] == 'crocecrocecroce' ||
+//         contenutoDelleCelle[1] + contenutoDelleCelle[4] + contenutoDelleCelle[7] == 'crocecrocecroce' ||
+//         contenutoDelleCelle[2] + contenutoDelleCelle[5] + contenutoDelleCelle[8] == 'crocecrocecroce' ||
+
+//         contenutoDelleCelle[0] + contenutoDelleCelle[4] + contenutoDelleCelle[8] == 'crocecrocecroce' ||
+//         contenutoDelleCelle[2] + contenutoDelleCelle[4] + contenutoDelleCelle[6] == 'crocecrocecroce' ){
+            
+//             return winnerVar = 'Croce'
+//     }
+
+//     if (
+//         contenutoDelleCelle[0] + contenutoDelleCelle[1] + contenutoDelleCelle[2] == 'cerchiocerchiocerchio' ||
+//         contenutoDelleCelle[3] + contenutoDelleCelle[4] + contenutoDelleCelle[5] == 'cerchiocerchiocerchio' ||
+//         contenutoDelleCelle[6] + contenutoDelleCelle[7] + contenutoDelleCelle[8] == 'cerchiocerchiocerchio' ||
+
+//         contenutoDelleCelle[0] + contenutoDelleCelle[3] + contenutoDelleCelle[6] == 'cerchiocerchiocerchio' ||
+//         contenutoDelleCelle[1] + contenutoDelleCelle[4] + contenutoDelleCelle[7] == 'cerchiocerchiocerchio' ||
+//         contenutoDelleCelle[2] + contenutoDelleCelle[5] + contenutoDelleCelle[8] == 'cerchiocerchiocerchio' ||
+
+//         contenutoDelleCelle[0] + contenutoDelleCelle[4] + contenutoDelleCelle[8] == 'cerchiocerchiocerchio' ||
+//         contenutoDelleCelle[2] + contenutoDelleCelle[4] + contenutoDelleCelle[6] == 'cerchiocerchiocerchio' ){ 
+            
+//             return winnerVar = 'Cerchio'
+//     }
+
+// } //controlla se c'è un vincitore o meno e SE esiste le assegna il nome
+
+// function Bottoni(props){
+//     if (props.segno){
+//         return (
+//             <button className = 'resetButton' >
+//                 <img  
+//                     className = ' tasto'  
+//                     src = {props.segno+'.png'}>
+//                 </img>
+//             </button>
+//         );
+//     }
+    
+//     return (
+//         <button 
+//             onClick = {()=> changeArray(props.indice)} 
+//             className = 'resetButton'>
+//         </button>
+//     );
+
+// }
+
+
+// function Tabella(props){
+
+
+//     if (props.turno >= 9 && !props.winner){
+//         return (
+//             <div className = 'centered'>
+//                 <h1> 
+//                     Partita patta 
+//                 </h1>
+//                 <button 
+//                     onClick = {()=> resetGame()} 
+//                     className = 'button-resetGame'>
+
+//                     RIGIOCA 
+
+//                 </button>
+//             </div>
+//         );
+//     }
+
+//     if(props.winner){
+//         return (
+//             <div className = 'centered'>
+//                 <h1> 
+//                     Partita finita, ha vinto {props.winner} 
+//                 </h1>
+//                 <button 
+//                     onClick = {()=> resetGame()} 
+//                     className = 'button-resetGame'> 
+
+//                     RIVINCITA 
+            
+//                 </button>
+
+//             </div>
+//         );
+//     }
+
+//     return (
+//         <div className= 'griglia grid'>
+//             {contenutoDelleCelle.map((el,i) => 
+//             <Bottoni 
+//                 indice = {i} 
+//                 key = {i} 
+//                 segno = {el} 
+//             /> )}
+//         </div>
+//     );
+// }
+
+// function RenderTris() {
+
+//     checkWinner()
+
+//     return (
+//         <div className='centered'>
+//             <Tabella 
+//                 turno = {turn} 
+//                 winner = {winnerVar} 
+//             />
+//         </div>
+//     );
+// }
+
+// ReactDOM.render( 
+//     <RenderTris />,
+//     document.getElementById('root')
+// );
+
+
+
+
 let contenutoDelleCelle= [null,null,null,null,null,null,null,null,null]
 
 let turn = 0
@@ -72,12 +238,19 @@ function checkWinner(){
 } //controlla se c'è un vincitore o meno e SE esiste le assegna il nome
 
 function Bottoni(props){
-    if (props.segno){
+
+    // const segno = props.segno
+    // const indice = props.indice
+
+    const {segno,indice} = props
+
+
+    if (segno){
         return (
             <button className = 'resetButton' >
                 <img  
                     className = ' tasto'  
-                    src = {props.segno+'.png'}>
+                    src = {segno+'.png'}>
                 </img>
             </button>
         );
@@ -85,7 +258,7 @@ function Bottoni(props){
     
     return (
         <button 
-            onClick = {()=> changeArray(props.indice)} 
+            onClick = {()=> changeArray(indice)} 
             className = 'resetButton'>
         </button>
     );
@@ -95,7 +268,11 @@ function Bottoni(props){
 
 function Tabella(props){
 
-    if (props.turno >= 9 && !props.winner){
+    //const turno = props.turno
+    //const winner = props.winner
+    const {turno,winner}= props
+
+    if (turno >= 9 && !winner){
         return (
             <div className = 'centered'>
                 <h1> 
@@ -112,11 +289,12 @@ function Tabella(props){
         );
     }
 
-    if(props.winner){
+    if(winner){
+
         return (
             <div className = 'centered'>
                 <h1> 
-                    Partita finita, ha vinto {props.winner} 
+                    Partita finita, ha vinto {winner} 
                 </h1>
                 <button 
                     onClick = {()=> resetGame()} 
@@ -160,6 +338,7 @@ ReactDOM.render(
     <RenderTris />,
     document.getElementById('root')
 );
+
 
 
 
